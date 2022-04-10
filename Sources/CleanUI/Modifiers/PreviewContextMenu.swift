@@ -50,13 +50,13 @@ public struct PreviewContextMenuOverlay<Content: View, Target: View>: UIViewRepr
         
         hostView.view.backgroundColor = .clear
         
+        let interaction = UIContextMenuInteraction(delegate: context.coordinator)
+        view.addInteraction(interaction)
+        
         return view
     }
     
-    public func updateUIView(_ uiView: UIView, context: Context) {
-        let interaction = UIContextMenuInteraction(delegate: context.coordinator)
-        uiView.addInteraction(interaction)
-    }
+    public func updateUIView(_ uiView: UIView, context: Context) {}
     
     public func makeCoordinator() -> Coordinator {
         return Coordinator(self)
