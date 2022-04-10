@@ -55,7 +55,7 @@ public struct PreviewContextMenuOverlay<Content: View, Target: View>: UIViewRepr
     
     public func updateUIView(_ uiView: UIView, context: Context) {
         let interaction = UIContextMenuInteraction(delegate: context.coordinator)
-        uiView.addInteraction(interaction)
+        uiView.interactions = [interaction]
     }
     
     public func makeCoordinator() -> Coordinator {
